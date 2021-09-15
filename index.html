@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Mettle X" />
+    <title>Shamir's Secret Sharing + AES-GCM</title>
+    <style>
+      body {
+        font-family: monospace;
+        margin: auto;
+        text-align: center;
+      }
+
+      .secret-container {
+        margin-bottom: 10px;
+      }
+
+      textarea {
+        width: 90vw;
+        max-width: 800px;
+      }
+
+      .share-count-container div {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      #share-buttons button {
+        margin: 10px;
+      }
+
+      @media screen and (max-width: 480px) {
+        .buttons button {
+          display: block;
+          margin: auto;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h4>Shamir's Secret Sharing + AES-GCM</h4>
+    <div>
+      <h3>Secret</h3>
+
+      <div class="secret-container">
+        <textarea
+          id="message"
+          rows="25"
+          placeholder="Write your secret here..."
+        ></textarea>
+      </div>
+
+      <label for="password">Password:</label>
+      <input
+        id="password"
+        placeholder="Type your password here..."
+        maxlength="50"
+      />
+      <div style="margin: auto; margin-top: 10px">
+        <button id="encrypt-btn">Encrypt ⬇️</button>
+        <button id="decrypt-btn">Decrypt ⬆️</button>
+      </div>
+    </div>
+    <div>
+      <h3>Encrypted Text</h3>
+      <textarea
+        id="enc-textarea"
+        rows="10"
+        placeholder="To get secret, paste encrypted text here..."
+      ></textarea>
+    </div>
+
+    <div class="share-count-container">
+      <div>
+        <label>Share Count:</label>
+        <input id="count" type="number" min="1" max="255" step="1" value="7" />
+      </div>
+      <div>
+        <label>Minimum Shares (threshold):</label>
+        <input
+          id="threshold"
+          type="number"
+          min="1"
+          max="255"
+          step="1"
+          value="4"
+        />
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button id="split_btn">split password into shares ⬇️</button>
+      <button id="combine_btn">combine shares to get password ⬆️</button>
+    </div>
+
+    <div>
+      <h3>Shares</h3>
+      <div id="share-buttons"></div>
+      <textarea id="shares" rows="14"></textarea>
+    </div>
+
+    <footer style="margin: 150px 0 50px 0; color: grey">
+      Built with ❤️ by Mettle X.
+      <br />
+      Acknowledgement: <a href="https://github.com/3box/sss-wasm">sss-wasm</a> &
+      <a
+        href="https://gist.github.com/chrisveness/43bcda93af9f646d083fad678071b90a"
+        >crypto-aes-gcm.js</a
+      >
+    </footer>
+
+    <script src="sss-wasm.js"></script>
+    <script src="crypto-aes-gcm.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
