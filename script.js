@@ -158,4 +158,8 @@ function combine() {
 
     messageBox.value = secret;
   });
+
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw.js");
+  }
 })();
