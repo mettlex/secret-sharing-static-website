@@ -1,6 +1,11 @@
 Shamir's Secret Sharing + AES-GCM on the web
 ______________________
 
+Hosted Links:
+
+- https://secret-sharing-web.pages.dev
+- https://secret-sharing-web.vercel.app
+
 Built with ❤️ by Mettle X.
 
 Acknowledgement: [sss-wasm](https://github.com/3box/sss-wasm) &
